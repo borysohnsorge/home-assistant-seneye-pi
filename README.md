@@ -133,7 +133,7 @@ python3 -m venv venv
 pip install -U pip
 pip install -r requirements.txt
 
-Configure /etc/default/seneye-mqtt:
+## Configure /etc/default/seneye-mqtt:
 MQTT_HOST=192.168.1.10
 MQTT_PORT=1883
 MQTT_USERNAME=mqtt-user
@@ -142,12 +142,12 @@ MQTT_PREFIX=seneye
 INTERVAL=300
 HIDRAW_PATH=/dev/hidraw0
 
-Enable service:
+## Enable service:
 sudo cp systemd/seneye-mqtt.service /etc/systemd/system/
 sudo systemctl daemon-reload
 sudo systemctl enable --now seneye-mqtt
 
-You should see in MQTT:
+## You should see in MQTT:
 seneye/status → online (retained)
 seneye/state  → {"temperature_c":25.1,"ph":8.15,"nh3_mg_l":0.01,...}
 
