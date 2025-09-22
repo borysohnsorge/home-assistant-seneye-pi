@@ -1,0 +1,2 @@
+pyseneye
+paho-mqtt
