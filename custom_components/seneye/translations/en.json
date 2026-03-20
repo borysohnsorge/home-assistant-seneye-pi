@@ -10,7 +10,7 @@
       },
       "mqtt": {
         "title": "Seneye — MQTT Backend",
-        "description": "Enter the topic prefix configured in your `seneye_mqtt_publisher`. The integration will subscribe to `{prefix}/state` and `{prefix}/status`.\n\nMake sure the **MQTT integration** is configured in Home Assistant and connected to the same broker as your publisher.",
+        "description": "Enter the topic prefix configured in your `seneye_mqtt_publisher`. The integration will subscribe to `<prefix>/state` and `<prefix>/status`.\n\nMake sure the **MQTT integration** is configured in Home Assistant and connected to the same broker as your publisher.",
         "data": {
           "mqtt_prefix": "Topic prefix"
         }
