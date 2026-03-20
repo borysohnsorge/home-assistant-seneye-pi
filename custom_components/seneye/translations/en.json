@@ -2,9 +2,22 @@
   "config": {
     "step": {
       "user": {
-        "title": "Seneye USB Sensor",
-        "description": "Add the local Seneye USB device."
+        "title": "Seneye — Choose Backend",
+        "description": "Select how Home Assistant should read data from your Seneye device.",
+        "data": {
+          "type": "Backend"
+        }
+      },
+      "mqtt": {
+        "title": "Seneye — MQTT Backend",
+        "description": "Enter the topic prefix configured in your `seneye_mqtt_publisher`. The integration will subscribe to `{prefix}/state` and `{prefix}/status`.\n\nMake sure the **MQTT integration** is configured in Home Assistant and connected to the same broker as your publisher.",
+        "data": {
+          "mqtt_prefix": "Topic prefix"
+        }
       }
+    },
+    "error": {
+      "mqtt_not_configured": "The MQTT integration is not configured or not connected in Home Assistant. Set it up first under Settings → Devices & Services → MQTT."
     },
     "abort": {
       "single_instance_allowed": "Seneye is already configured."
@@ -14,13 +27,13 @@
     "step": {
       "init": {
         "title": "Seneye Options",
+        "description": "Adjust calibration offsets and (for HID) the polling interval.",
         "data": {
-          "update_interval_min": "Update interval (minutes)",
-          "temp_offset": "Temperature offset (\u00b0C)",
+          "update_interval_min": "Poll interval (minutes) — HID only",
+          "temp_offset": "Temperature offset (°C)",
           "ph_offset": "pH offset (additive)",
           "par_scale": "PAR scale (multiplier)"
-        },
-        "description": "Adjust poll interval and calibration."
+        }
       }
     }
   }

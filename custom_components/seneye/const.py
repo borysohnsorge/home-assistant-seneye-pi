@@ -1,5 +1,12 @@
 DOMAIN = "seneye"
 
+CONF_BACKEND = "type"
+BACKEND_HID = "HID"
+BACKEND_MQTT = "MQTT"
+
+CONF_MQTT_PREFIX = "mqtt_prefix"
+DEFAULT_MQTT_PREFIX = "seneye"
+
 CONF_UPDATE_INTERVAL_MIN = "update_interval_min"
 CONF_TEMP_OFFSET = "temp_offset"
 CONF_PH_OFFSET = "ph_offset"
