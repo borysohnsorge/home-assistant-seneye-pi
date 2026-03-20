@@ -82,18 +82,21 @@ class SeneyeConfigFlow(ConfigFlow, domain=DOMAIN):
     @staticmethod
     @callback
     def async_get_options_flow(config_entry):
-        return SeneyeOptionsFlow()
+        return SeneyeOptionsFlow(config_entry)
 
 
 class SeneyeOptionsFlow(OptionsFlow):
     """Seneye options flow."""
 
+    def __init__(self, config_entry) -> None:
+        self._config_entry = config_entry
+
     async def async_step_init(self, user_input=None):
         if user_input is not None:
             return self.async_create_entry(data=user_input)
 
-        backend = self.config_entry.data.get(CONF_BACKEND, BACKEND_HID)
-        opts = self.config_entry.options
+        backend = self._config_entry.data.get(CONF_BACKEND, BACKEND_HID)
+        opts = self._config_entry.options
 
         schema_fields: dict = {}
 
