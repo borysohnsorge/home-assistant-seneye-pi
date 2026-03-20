@@ -23,8 +23,7 @@ from .const import (
 
 async def _mqtt_is_available(hass: HomeAssistant) -> bool:
     try:
-        from homeassistant.components import mqtt
-        return mqtt.async_is_connected(hass)
+        return bool(hass.config_entries.async_entries("mqtt"))
     except Exception:
         return False
 
